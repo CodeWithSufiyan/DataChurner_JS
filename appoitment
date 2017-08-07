@@ -1,0 +1,27 @@
+function GetAppointmentTime(arrTimeSlots) {
+    var arrIndividualTime = arrTimeSlots.join(",").replace(/-/g, ",").split(",")
+    var tmStart = arrIndividualTime[0]
+    var tmEnd = arrIndividualTime[arrIndividualTime.length - 1]
+    return [].concat(tmStart).concat(tmEnd)
+}
+
+console.log("F:" + GetAppointmentTime(["10:00-10:15", "10:15-10:30", "10:30-10:45", "10:45-11:00", "11:00-11:15"]))
+
+function GetAppointmentTimeSlots(tmStart, tmEnd, tmSlot) {
+    var Min = (Number(tmEnd.split(':')[0]) - Number(tmStart.split(':')[0])) * 60 + Number(tmEnd.split(':')[1]) - Number(tmStart.split(':')[1])
+    var jSlots = Min / tmSlot
+    
+    var hr = parseInt(tmStart.split(":")[0])
+    var min = 15;
+    var arrTimeSlots = [];
+    for (var i = 0; i < jSlots; i++) {
+        console.log(arrTimeSlots.push(JSON.stringify(hr).concat(":").concat(tmSlot)))   
+        console.log(tmSlot)
+        tmSlot += tmSlot
+        if (tmSlot==60){
+            tmSlot = 00;
+            hr++;
+        }
+    }
+    return JSON.stringify(arrTimeSlots);
+}
