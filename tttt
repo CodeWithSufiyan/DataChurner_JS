@@ -1,0 +1,41 @@
+var MedicineType = {
+    View: {
+        Table_OnlyHeader: function () {
+            var table = $('<table class="table-bordered table-responsive col-md-12"></table>')
+            var thead = $('<thead></thead>')
+            var tr = $('<tr><th>A</th><th>B</th><th>C</th></tr>')
+            thead.append(tr)
+            table.append(thead)
+            return table
+        },
+        Container: function () {
+            var divTable = $('<div class="table-responsive col-md-12">\
+                            </div>');
+            var header = $('<h3></h3>')
+            divTable.append(header)
+            return divTable.append(this.Table_OnlyHeader)
+        }
+    },
+
+    CreateMedicineTypeListItem: function ($div, callback) {
+        $div.append(this.View.Container())
+        
+        return callback(this.View.Container())
+    },
+
+    PrintHeader: function () {
+        this.find("h3").append("")
+    }
+}
+                      
+var data = ['pain killer', 'antacid', 'antibacteria']
+                        
+for (var i = 0; i < data.length; i++) {
+    MedicineType.CreateMedicineTypeListItem($("#listMedicine"), function (container) {
+        if (container.find("table").length>0) {
+            console.log("found")
+            container.append()
+        }
+    })
+}           
+ 
