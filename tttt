@@ -39,3 +39,47 @@ for (var i = 0; i < data.length; i++) {
     })
 }           
  
+    function CreateCardForTable(strMedicineType) {
+        var rowMatchHeight = $('<div class="row match-height"></div>');
+        var row = $('<div class="col-xs-12"></div>')
+        var card = $('<div class="card" style="border: 1px solid #d4d4d4"></div>');
+        var cardHeader = $('<div class="card-header">\
+                                <h4 class="card-title">' + strMedicineType + '</h4>\
+                                <a class="heading-elements-toggle"><i class="icon-ellipsis font-medium-3"></i></a>\
+                                <div class="heading-elements">\
+                                     <ul class="list-inline mb-0">\
+                                        <li><a data-action="collapse"><i class="icon-minus4"></i></a></li>\
+                                     </ul>\
+                                </div>\
+                            </div>');
+        var cardBody = $('<div class="card-body collapse in"></div>')
+        var cardBlock = $('<div class="card-block p-0"></div>')
+        var divTable = $('<div class="table-responsive"></div>');
+
+        cardBlock.append(divTable)
+        cardBody.append(cardBlock)
+        card.append(cardHeader).append(cardBody)
+        row.append(card)
+        rowMatchHeight.append(row)
+        return rowMatchHeight;
+    }
+
+    function CreateTableHeader() {
+        var table = $('<table class="table table-bordered" style="margin-bottom: 0">\
+                        <thead>\
+                            <tr>\
+                                <th>Medicine</th>\
+                                <th>Description</th>\
+                                <th>Units</th>\
+                                <th>Dose</th>\
+                                <th>Dose Priority</th>\
+                                <th>Days</th>\
+                                <th>Total Units</th>\
+                                <th>Delete</th>\
+                            </tr>\
+                        </thead>\
+                     </table>')
+        return table;
+        //CreateCardForTable().find(".table-responsive").append(table)
+    }
+
