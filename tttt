@@ -1,3 +1,4 @@
+http://www.c-sharpcorner.com/UploadFile/3d39b4/simple-select-insert-update-and-delete-using-linq-to-sql/
 var MedicineType = {
     View: {
         Table_OnlyHeader: function () {
